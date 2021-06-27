@@ -1,6 +1,10 @@
+import { Home } from "./page/Home";
+
+import './styles/global.css';
+
 function App() {
   return (
-   <h1>Let's hack</h1>
+    <Home />
   );
 }
 
