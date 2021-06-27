@@ -11,5 +11,6 @@ Projeto desenvolvido durante a NLW 5.
 * [react]()
 * [sass]()
 * [react-router-dom](https://reactrouter.com/web/guides/quick-start)
-* [firebase]()
+* [firebase](https://console.firebase.google.com/)
+* [react-hot-toast](https://react-hot-toast.com/)
 
