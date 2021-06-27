@@ -2,8 +2,9 @@
   <img alt="let me ask" title="MoveIt" src="src\assets/images\logo.svg">
 </h1>
 <br />
+
 # Sobre o projeto
-🚧 **Projeto em desenvolvimento** 🚧
+🚧 Projeto em desenvolvimento 🚧
 <br />
 Projeto desenvolvido durante a NLW 5.
 
