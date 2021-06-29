@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useState } from 'react';
+import { FormEvent, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useParams } from 'react-router-dom';
 import { Button } from '../components/Button';
@@ -8,60 +8,21 @@ import { database } from '../services/firebase';
 
 import logoImg from '../assets/images/logo.svg';
 import '../styles/room.scss';
+import { Question } from '../components/Question';
+import { useRoom } from '../hooks/useRoom';
+
 
 type RoomParams = {
   id: string;
-}
-
-type FirebaseQuestions = Record<string, {
-  author: {
-    name: string;
-    avatar: string;
-  },
-  content: string;
-  isAnswered: boolean;
-  isHighlighted: boolean;
-}>
-
-type Question = {
-  id: string;
-  author: {
-    name: string;
-    avatar: string;
-  },
-  content: string;
-  isAnswered: boolean;
-  isHighlighted: boolean;
 }
 
 export function Room() {
   const { user } = useAuth();
   const params = useParams<RoomParams>();
   const roomId = params.id;
+  const { questions, title } = useRoom(roomId);
 
   const [newQuestion, setNewQuestion] = useState('');
-  const [questions, setQuestions] = useState<Question[]>([]);
-  const [title, setTitle] = useState('');
-
-  useEffect(() => {
-    const roomRef = database.ref(`rooms/${roomId}`);
-    roomRef.on('value', room => {
-      const databaseRoom = room.val();
-      const firebaseQuestions: FirebaseQuestions = databaseRoom.questions ?? {};
-      const parsedQuestions = Object.entries(firebaseQuestions).map(([key, value]) => {
-        return {
-          id: key,
-          content: value.content,
-          author: value.author,
-          isAnswered: value.isAnswered,
-          isHighlighted: value.isHighlighted,
-        }
-      });
-
-      setTitle(databaseRoom.title);
-      setQuestions(parsedQuestions);
-    });
-  }, [roomId]);
 
   async function handleSendQuestion(event: FormEvent) {
     event.preventDefault();
@@ -107,7 +68,7 @@ export function Room() {
       <main>
         <div className="room-title">
           <h1>Sala {title}</h1>
-          {questions.length > 0 &&  <span>{questions.length} pergunta(s)</span>}
+          {questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
         </div>
 
         <form onSubmit={handleSendQuestion}>
@@ -129,7 +90,13 @@ export function Room() {
           </div>
         </form>
 
-        {JSON.stringify(questions)}
+        <div className="question-list">
+          {questions.map(question => {
+            return (
+              <Question key={question.id} content={question.content} author={question.author} />
+            )
+          })}
+        </div>
       </main>
     </div>
   )
