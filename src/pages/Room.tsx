@@ -59,12 +59,22 @@ export function Room() {
   async function handleLikeQuestion(questionId: string, likeId: string | undefined) {
     if (likeId) {
       // Remove like
-      await database.ref(`rooms/${roomId}/questions/${questionId}/likes/${likeId}`).remove();
+      try {
+        await database.ref(`rooms/${roomId}/questions/${questionId}/likes/${likeId}`).remove();
+        toast.success('Like removido');
+      } catch (error) {
+        toast.error('Não foi possível remover seu like');
+      }
     } else {
       // Add like
-      await database.ref(`rooms/${roomId}/questions/${questionId}/likes`).push({
-        authorId: user?.id,
-      });
+      try {
+        await database.ref(`rooms/${roomId}/questions/${questionId}/likes`).push({
+          authorId: user?.id,
+        });
+        toast.success('Like registrado');
+      } catch (error) {
+        toast.error('Não foi possível registrar seu like');
+      }
     }
   }
 
