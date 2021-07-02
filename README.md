@@ -14,4 +14,5 @@ Projeto desenvolvido durante a NLW 5.
 * [react-router-dom](https://reactrouter.com/web/guides/quick-start)
 * [firebase](https://console.firebase.google.com/)
 * [react-hot-toast](https://react-hot-toast.com/)
+* [classnames](https://www.npmjs.com/package/classnames)
 
