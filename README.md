@@ -17,7 +17,9 @@
 </div>
 <br/>
 <br/>
-<img align="center" src="documents/readme/web.png">
+<div align="center">
+  <img src="documents/readme/web.png">
+</div>
 <br/>
 
 # Sobre o projeto
