@@ -62,7 +62,7 @@ yarn start
 # 🖖🏻 Como contribuir
 
 - Faça um fork desse repositório;
-- Clone esse repositório em sua máquina: `https://github.com/ViniciusMazon/nlw4-net-promoter-score.git`
+- Clone esse repositório em sua máquina: git clone `https://github.com/ViniciusMazon/LetMeAsk.git`
 - Cria uma branch com a sua feature: `git checkout -b minha-feature`;
 - Faça o commit dos testes: `git commit -m 'test: Nome do teste'`;
 - Faça commit das suas alterações: `git commit -m 'feat: Minha nova feature'`;
