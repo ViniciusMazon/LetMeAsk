@@ -26,7 +26,7 @@
 
 O LetMeAsk é uma plataforma de perguntas e respostas dedicada a criadores de conteúdo que são bombardeados com perguntas em suas transmissões. O LetMeAsk permite que a comunidade vote nas perguntas mais relevantes, bem como permite que o administrador da sala destaque e apague perguntas.
 
-Projeto desenvolvido durante a NLW 5, evento da [Rocketseat](https://github.com/rocketseat-education)💜.
+Projeto desenvolvido durante a NLW 6, evento da [Rocketseat](https://github.com/rocketseat-education)💜.
 
 Demo: https://letmeask-b3b02.web.app/
 Vídeo demo: https://youtu.be/CGSconZTE2Q
